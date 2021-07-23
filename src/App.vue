@@ -1,18 +1,22 @@
 <template>
   <div id="App">
+    <h1 class="first">这是第一个作业</h1>
     <el-card class="box-card">
       <Header @addTodo="addTodo" />
       <List :taskLists="taskLists" @delTodo="delTodo" :selectAll="selectAll" />
       <Footer 
       :taskLists="taskLists"
        />
-
       <Footer>
-        <div slot="unfinish" class="grid-content bg-purple">未完成<span class="word-left">{{taskLists.length - finished}}</span></div>
-        <div slot="finish" class="grid-content bg-purple">已完成<span class="word-left">{{finished}}</span></div>
-        <div slot="total" class="grid-content bg-purple">总任务<span class="word-left">{{taskLists.length}}</span></div>
+        <div slot="unfinish" class="grid-content bg-purple">未完成<span class="word-left">: {{taskLists.length - finished}}</span></div>
+        <div slot="finish" class="grid-content bg-purple">已完成<span class="word-left">: {{finished}}</span></div>
+        <div slot="total" class="grid-content bg-purple">总任务<span class="word-left">: {{taskLists.length}}</span></div>
       </Footer>
     </el-card>
+    <div class="second">
+     <h1>这是第二个作业</h1>
+      <echarts1/>
+    </div>
   </div>
 </template>
 
@@ -22,6 +26,7 @@ import PubSub from 'pubsub-js'
 import Header from './components/Header'
 import List from './components/List'
 import Footer from './components/Footer'
+import echarts1 from './components/echarts.vue'
 
 import localStorageTool from './utils/localStorage'
 export default {
@@ -29,7 +34,8 @@ export default {
   components: {
     Header,
     List,
-    Footer
+    Footer,
+    echarts1
   },
 
   data(){
@@ -83,7 +89,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #App {
    font-family: Avenir, Helvetica, Arial, sans-serif;
    -webkit-font-smoothing: antialiased;
@@ -93,6 +99,14 @@ export default {
 
  .box-card {
     width: 480px;
+    margin: 0 auto;
+  }
+  .second{
+    width: 800px;
+    margin: 0 auto;
+  }
+  .first{
+    width: 800px;
     margin: 0 auto;
   }
 </style>

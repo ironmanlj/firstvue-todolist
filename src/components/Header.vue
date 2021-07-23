@@ -9,7 +9,7 @@
         v-model="task"
         @keyup.enter.native="addTask"
         clearable>
-        </el-input>
+      </el-input>
        <el-divider></el-divider>
   </div>
 </template>
